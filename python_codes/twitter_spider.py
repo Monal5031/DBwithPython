@@ -1,3 +1,9 @@
+# This code won't work properly since you don't have my
+# TWITTER KEYS xD :joy: ;P :p
+
+# This is just an example on how the things will be done
+# Just import the twitter keys and done.
+
 import urllib.request, urllib.parse, urllib.error
 import sqlite3
 import sys
