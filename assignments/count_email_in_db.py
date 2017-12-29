@@ -1,17 +1,25 @@
 import urllib.request, urllib.parse, urllib.error
 import sqlite3
 import sys
+import ssl
 
 
+# DB connections
 connection = sqlite3.connect('Assignment2.sqlite')
 cursor = connection.cursor()
 
+# Data url
 url = 'https://www.py4e.com/code3/mbox.txt'
 
 
+# Security Certificates
+context = ssl.create_default_context()
+context.check_hostname = False
+context.verify_mode = ssl.CERT_NONE
+
 def fetch_data():
 	request = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-	url_handle = urllib.request.urlopen(request)
+	url_handle = urllib.request.urlopen(request, context=context)
 	# Data we read is not unicode so we need to decode
 	data = url_handle.read().decode()
 	return data
