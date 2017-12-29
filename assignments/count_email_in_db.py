@@ -12,7 +12,7 @@ cursor = connection.cursor()
 url = 'https://www.py4e.com/code3/mbox.txt'
 
 
-# Security Certificates
+# Ignore SSL certificate errors
 context = ssl.create_default_context()
 context.check_hostname = False
 context.verify_mode = ssl.CERT_NONE
